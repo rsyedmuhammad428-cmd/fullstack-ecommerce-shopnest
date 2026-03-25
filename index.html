@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AETHEL Store — Premium Tech & Lifestyle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="ann-bar">🎉 Free Shipping on orders over $150 &nbsp;·&nbsp; Use code <strong>AETHEL20</strong> for 20% off
+    &nbsp;·&nbsp; <a href="#">New Arrivals →</a></div>
+
+  <!-- ══ HEADER ══ -->
+  <header class="site-hdr" id="siteHdr">
+    <div class="wrap">
+      <div class="hdr-in">
+        <a href="#" class="logo" onclick="nav('home',event)">
+          <div class="logo-ic"><svg viewBox="0 0 24 24">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            </svg></div>
+          <span class="logo-tx">AETHEL<span>.</span></span>
+        </a>
+
+        <nav class="nav" id="mainNav">
+          <!-- Mobile Nav Header -->
+          <div class="nav-mob-hd">
+            <div class="nav-mob-logo">
+              <div class="logo-ic"><svg viewBox="0 0 24 24">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                </svg></div>
+              <span class="logo-tx">AETHEL<span>.</span></span>
+            </div>
+            <button class="nav-mob-close" onclick="closeMNav()" aria-label="Close menu">✕</button>
+          </div>
+
+          <!-- Mobile Search -->
+          <div class="nav-mob-srch">
+            <div class="srch-wrap">
+              <input class="srch-inp" type="text" placeholder="Search products…" autocomplete="off"
+                onkeydown="if(event.key==='Enter'){doSearch();closeMNav();}">
+              <button class="srch-btn" onclick="doSearch();closeMNav()"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg></button>
+            </div>
+          </div>
+
+          <!-- Nav Links -->
+          <ul class="nav-ul">
+            <li><a href="#" class="nav-a on" data-pg="home" onclick="nav('home',event);closeMNav()">Home <span
+                  style="color:var(--gold);font-size:.7rem">›</span></a></li>
+            <li class="nav-item">
+              <a href="#" class="nav-a" data-pg="shop" onclick="toggleMobDrop(this,event)">Shop <span
+                  style="color:var(--gold);font-size:.7rem" id="shopArrow">▾</span></a>
+              <div class="nav-drop" id="shopDrop">
+                <a href="#" class="drop-a" onclick="navToShopCat('Wearables',event);closeMNav()"><svg
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>Wearables</a>
+                <a href="#" class="drop-a" onclick="navToShopCat('Audio',event);closeMNav()"><svg viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18V5l12-2v13" />
+                    <circle cx="6" cy="18" r="3" />
+                    <circle cx="18" cy="16" r="3" />
+                  </svg>Audio Gear</a>
+                <a href="#" class="drop-a" onclick="navToShopCat('Mobiles',event);closeMNav()"><svg viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                  </svg>Mobile Phones</a>
+                <a href="#" class="drop-a" onclick="navToShopCat('Laptops & Tablets',event);closeMNav()"><svg
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="13" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="16" x2="12" y2="21" />
+                  </svg>Laptops & Tablets</a>
+                <a href="#" class="drop-a" onclick="navToShopCat('Cameras',event);closeMNav()"><svg viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
+                    <circle cx="12" cy="13" r="4" />
+                  </svg>Cameras</a>
+                <a href="#" class="drop-a" onclick="navToShopCat('Home & Living',event);closeMNav()"><svg
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                  </svg>Home & Living</a>
+              </div>
+            </li>
+            <li><a href="#" class="nav-a" onclick="navToSection('collections',event);closeMNav()">Collections <span
+                  style="color:var(--gold);font-size:.7rem">›</span></a></li>
+            <li><a href="#" class="nav-a" onclick="navToSection('deals',event);closeMNav()">Deals <span
+                  style="color:var(--gold);font-size:.7rem">›</span></a></li>
+            <li><a href="#" class="nav-a" onclick="navToSection('blog',event);closeMNav()">Blog <span
+                  style="color:var(--gold);font-size:.7rem">›</span></a></li>
+            <li><a href="#" class="nav-a" onclick="navToSection('contact',event);closeMNav()">Contact <span
+                  style="color:var(--gold);font-size:.7rem">›</span></a></li>
+          </ul>
+
+          <!-- Mobile Nav Footer Actions -->
+          <div class="nav-mob-foot">
+            <button class="btn btn-gold" onclick="nav('shop',event);closeMNav()">Shop Now</button>
+            <button class="btn btn-dk" onclick="toggleCart();closeMNav()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>
+              Cart
+            </button>
+          </div>
+        </nav>
+
+        <div class="hdr-srch">
+          <div class="srch-wrap">
+            <input class="srch-inp" id="srchInp" type="text" placeholder="Search products…" autocomplete="off">
+            <button class="srch-btn" onclick="doSearch()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg></button>
+          </div>
+          <div class="srch-drop" id="srchDrop">
+            <div class="srch-item" onclick="srchFor('Smartwatch')"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>Smartwatch</div>
+            <div class="srch-item" onclick="srchFor('Wireless Headphones')"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>Wireless Headphones</div>
+            <div class="srch-item" onclick="srchFor('iPhone')"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>iPhone 16 Pro Max</div>
+            <div class="srch-item" onclick="srchFor('MacBook')"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>MacBook Pro</div>
+            <div class="srch-item" onclick="srchFor('Sofa')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>Premium Sofa</div>
+          </div>
+        </div>
+
+        <div class="hdr-acts">
+          <button class="hbtn" title="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg></button>
+          <button class="hbtn" onclick="toggleCart()" title="Cart"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
+            </svg><span class="hbadge" id="cBadge" style="display:none">0</span></button>
+          <button class="hbtn" title="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg></button>
+          <button class="hbtn mob-tog" onclick="toggleMNav()" id="mobTog"><svg id="mico" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-ov" id="cartOv" onclick="toggleCart()"></div>
+  <aside class="cart-sb" id="cartSb">
+    <div class="cart-hd">
+      <h2 class="cart-ttl">Shopping Cart</h2>
+      <button class="cart-cls" onclick="toggleCart()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
+    <div class="cart-bd" id="cartBd">
+      <div class="cart-empty" id="cartMty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 01-8 0" />
+        </svg>
+        <p>Your cart is empty</p>
+        <button class="btn btn-go btn-sm" onclick="toggleCart();nav('shop',event)">Browse Products</button>
+      </div>
+      <div id="cartList"></div>
+    </div>
+    <div class="cart-ft" id="cartFt" style="display:none">
+      <div class="cart-sub"><span>Subtotal</span><strong id="cartTot">$0.00</strong></div>
+      <button class="btn btn-gold btn-full" style="margin-bottom:10px">Checkout →</button>
+      <button class="btn btn-dk btn-full btn-sm" onclick="toggleCart()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12" />
+    </svg><span id="toastMsg"></span></div>
+
+  <!-- SCROLL TOP -->
+  <button class="s2t" id="s2t" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15" />
+    </svg></button>
+
+  <!-- ══════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════ -->
+  <main class="pg on" id="pg-home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-l wrap" style="padding-left:56px;padding-right:56px;max-width:none">
+        <div class="h-ey">
+          <div class="h-ey-ln"></div><span class="h-ey-tx">New Collection 2026</span>
+        </div>
+        <h1 class="h-ttl">The Art of<br><em>Timeless</em><br>Precision</h1>
+        <p class="h-desc">Define your style with the pinnacle of design and innovation. Premium tech and lifestyle,
+          crafted for those who demand excellence in every detail.</p>
+        <div class="h-btns">
+          <button class="btn btn-gold btn-lg" onclick="nav('shop',event)">Shop Now →</button>
+          <button class="btn btn-wh btn-lg" onclick="nav('shop',event)">View Collection</button>
+        </div>
+        <div class="h-stats">
+          <div>
+            <div class="sn">12K+</div>
+            <div class="sl">Happy Customers</div>
+          </div>
+          <div>
+            <div class="sn">340+</div>
+            <div class="sl">Products</div>
+          </div>
+          <div>
+            <div class="sn">4.9★</div>
+            <div class="sl">Avg Rating</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-r">
+        <img class="hero-img" src="assets/images/hero_banner_clean.png" alt="Hero"
+          onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80'">
+        <div class="hero-grad"></div>
+        <div class="hfl t">
+          <div class="hfl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12" />
+            </svg></div>
+          <div>
+            <div class="hfl-t">Free Shipping</div>
+            <div class="hfl-s">Orders over $150</div>
+          </div>
+        </div>
+        <div class="hfl b">
+          <div class="hfl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg></div>
+          <div>
+            <div class="hfl-t">2-Year Warranty</div>
+            <div class="hfl-s">All products</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES STRIP -->
+    <div class="feat-strip">
+      <div class="wrap">
+        <div class="feat-row">
+          <div class="fi">
+            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg></div>
+            <div>
+              <div class="fi-t">Free Delivery</div>
+              <div class="fi-s">Orders over $150</div>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <div>
+              <div class="fi-t">Secure Payment</div>
+              <div class="fi-s">256-bit SSL</div>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="1 4 1 11 8 11" />
+                <path d="M3.51 15a9 9 0 102.13-9.36L1 11" />
+              </svg></div>
+            <div>
+              <div class="fi-t">Easy Returns</div>
+              <div class="fi-s">30-day hassle free</div>
+            </div>
+          </div>
+          <div class="fi">
+            <div class="fi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg></div>
+            <div>
+              <div class="fi-t">24/7 Support</div>
+              <div class="fi-s">Expert help anytime</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <section class="section" id="collections">
+      <div class="wrap">
+        <div class="sec-hd">
+          <div>
+            <div class="eyebrow">Browse by Category</div>
+            <h2 class="stitle">Shop by Collection</h2>
+          </div>
+          <button class="btn btn-go btn-sm" onclick="resetAllFilters(event)">All Products</button>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-c" onclick="navToShopCat('Wearables',event)">
+            <img class="cat-img"
+              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+              alt="Wearables" loading="lazy">
+            <div class="cat-ov">
+              <div class="cat-n">Wearables</div>
+              <div class="cat-s">48 Products</div>
+              <div class="cat-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="cat-c" onclick="navToShopCat('Audio',event)">
+            <img class="cat-img"
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+              alt="Audio" loading="lazy">
+            <div class="cat-ov">
+              <div class="cat-n">Audio Gear</div>
+              <div class="cat-s">62 Products</div>
+              <div class="cat-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="cat-c" onclick="navToShopCat('Mobiles',event)">
+            <img class="cat-img"
+              src="https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=600&q=80"
+              alt="Mobiles" loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80'">
+            <div class="cat-ov">
+              <div class="cat-n">Mobile Phones</div>
+              <div class="cat-s">54 Products</div>
+              <div class="cat-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="cat-c" onclick="navToShopCat('Cameras',event)">
+            <img class="cat-img"
+              src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80"
+              alt="Cameras" loading="lazy">
+            <div class="cat-ov">
+              <div class="cat-n">Cameras</div>
+              <div class="cat-s">29 Products</div>
+              <div class="cat-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="cat-c" onclick="navToShopCat('Laptops & Tablets',event)">
+            <img class="cat-img"
+              src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+              alt="Laptops" loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=600&q=80'">
+            <div class="cat-ov">
+              <div class="cat-n">Laptops</div>
+              <div class="cat-s">36 Products</div>
+              <div class="cat-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="cat-c" onclick="navToShopCat('Home & Living',event)">
+            <img class="cat-img"
+              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80"
+              alt="Home Living" loading="lazy">
+            <div class="cat-ov">
+              <div class="cat-n">Home & Living</div>
+              <div class="cat-s">115 Products</div>
+              <div class="cat-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-hd">
+          <div>
+            <div class="eyebrow">Handpicked For You</div>
+            <h2 class="stitle">Featured Products</h2>
+          </div>
+          <button class="btn btn-go btn-sm" onclick="resetAllFilters(event)">View All</button>
+        </div>
+        <div class="ptabs">
+          <button class="pt on" onclick="filterTab(this,'all')">All</button>
+          <button class="pt" onclick="filterTab(this,'Wearables')">Wearables</button>
+          <button class="pt" onclick="filterTab(this,'Audio')">Audio</button>
+          <button class="pt" onclick="filterTab(this,'Mobiles')">Mobiles</button>
+          <button class="pt" onclick="filterTab(this,'Cameras')">Cameras</button>
+          <button class="pt" onclick="filterTab(this,'Home & Living')">Home & Living</button>
+          <button class="pt" onclick="filterTab(this,'Laptops & Tablets')">Laptops</button>
+        </div>
+        <div class="pgrid" id="featGrid"></div>
+      </div>
+    </section>
+
+    <!-- PROMO BANNERS -->
+    <section class="section" id="deals" style="padding-top:0">
+      <div class="wrap">
+        <div class="promo-g">
+          <div class="promo-c">
+            <img class="promo-img"
+              src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80"
+              alt="Watch Promo" loading="lazy">
+            <div class="promo-ov">
+              <div class="promo-tag">Limited Edition</div>
+              <div class="promo-t">Precision<br>Timepieces</div>
+              <button class="btn btn-gold btn-sm" onclick="nav('shop',event)">Shop Watches →</button>
+            </div>
+          </div>
+          <div class="promo-c">
+            <img class="promo-img"
+              src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80"
+              alt="Audio Promo" loading="lazy">
+            <div class="promo-ov">
+              <div class="promo-tag">Up to 30% Off</div>
+              <div class="promo-t">Studio-Grade<br>Audio</div>
+              <button class="btn btn-gold btn-sm" onclick="nav('shop',event)">Shop Audio →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="blog"
+      style="background:var(--dark-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+      <div class="wrap">
+        <div style="text-align:center;margin-bottom:48px">
+          <div class="eyebrow" style="justify-content:center">Customer Love</div>
+          <h2 class="stitle">What Our Customers Say</h2>
+        </div>
+        <div class="testi-g">
+          <div class="testi-c">
+            <div class="t-stars"><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg></div>
+            <p class="t-body">"The Quantum Pro Watch is absolutely breathtaking. Build quality beyond anything I've seen
+              at this price point. Fast delivery, gorgeous packaging. This is premium done right."</p>
+            <div class="t-auth"><img class="t-av"
+                src="https://ui-avatars.com/api/?name=James+Thornton&background=c9a84c&color=080808&size=80&bold=true"
+                alt="James" loading="lazy">
+              <div>
+                <div class="t-nm">James Thornton</div>
+                <div class="t-role">Software Engineer, London</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-c">
+            <div class="t-stars"><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg></div>
+            <p class="t-body">"Ordered the sofa set on a Tuesday, delivered by Thursday. The quality is absolutely
+              stunning — looks even better in person. AETHEL has a customer for life."</p>
+            <div class="t-auth"><img class="t-av"
+                src="https://ui-avatars.com/api/?name=Sophia+Chen&background=c9a84c&color=080808&size=80&bold=true"
+                alt="Sophia" loading="lazy">
+              <div>
+                <div class="t-nm">Sophia Chen</div>
+                <div class="t-role">Interior Designer, Dubai</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-c">
+            <div class="t-stars"><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><svg class="tstar" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg></div>
+            <p class="t-body">"The Acoustic Elite headphones are unreal. I've been a professional music producer for 15
+              years and these compete with headphones costing 3x the price. Incredible."</p>
+            <div class="t-auth"><img class="t-av"
+                src="https://ui-avatars.com/api/?name=Marcus+Williams&background=c9a84c&color=080808&size=80&bold=true"
+                alt="Marcus" loading="lazy">
+              <div>
+                <div class="t-nm">Marcus Williams</div>
+                <div class="t-role">Music Producer, New York</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+     SHOP PAGE
+══════════════════════════════════════ -->
+  <main class="pg" id="pg-shop">
+    <div class="pg-hero">
+      <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <div>
+          <h1 class="pg-ttl">All Products</h1>
+          <div class="bcrumb"><a href="#" onclick="nav('home',event)">Home</a><span
+              style="color:var(--dark-4)">/</span><span>Shop</span></div>
+        </div>
+        <div class="h-stats" style="border:none;padding:0;gap:32px">
+          <div>
+            <div class="sn" style="font-size:1.4rem">340+</div>
+            <div class="sl">Products</div>
+          </div>
+          <div>
+            <div class="sn" style="font-size:1.4rem">15</div>
+            <div class="sl">Brands</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="listing">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sb-hd">Filters <span class="clr-btn" onclick="clearF()">Clear all</span></div>
+          <div class="fg">
+            <div class="ftog op" onclick="togF(this)">Category <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15" />
+              </svg></div>
+            <div class="fbody">
+              <label class="fo ck" data-cat="all" onclick="filterByCat(this)">
+                <div class="fchk"></div>All Products<span class="fcnt">340</span>
+              </label>
+              <label class="fo" data-cat="Wearables" onclick="filterByCat(this)">
+                <div class="fchk"></div>Wearables<span class="fcnt">48</span>
+              </label>
+              <label class="fo" data-cat="Audio" onclick="filterByCat(this)">
+                <div class="fchk"></div>Audio Gear<span class="fcnt">62</span>
+              </label>
+              <label class="fo" data-cat="Mobiles" onclick="filterByCat(this)">
+                <div class="fchk"></div>Mobile Phones<span class="fcnt">54</span>
+              </label>
+              <label class="fo" data-cat="Cameras" onclick="filterByCat(this)">
+                <div class="fchk"></div>Cameras<span class="fcnt">29</span>
+              </label>
+              <label class="fo" data-cat="Laptops & Tablets" onclick="filterByCat(this)">
+                <div class="fchk"></div>Laptops & Tablets<span class="fcnt">43</span>
+              </label>
+              <label class="fo" data-cat="Home & Living" onclick="filterByCat(this)">
+                <div class="fchk"></div>Home & Living<span class="fcnt">115</span>
+              </label>
+              <label class="fo" data-cat="Furniture" onclick="filterByCat(this)">
+                <div class="fchk"></div>Furniture<span class="fcnt">38</span>
+              </label>
+            </div>
+          </div>
+          <div class="fg">
+            <div class="ftog op" onclick="togF(this)">Price Range <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15" />
+              </svg></div>
+            <div class="fbody">
+              <div class="rng-lbls"><span>$0</span><span id="prV">$4,000</span></div>
+              <input type="range" id="priceRange" min="0" max="4000" value="4000" oninput="filterByPrice(this.value)">
+            </div>
+          </div>
+          <div class="fg">
+            <div class="ftog op" onclick="togF(this)">Brand <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polyline points="18 15 12 9 6 15" />
+              </svg></div>
+            <div class="fbody">
+              <label class="fo" data-brand="AETHEL" onclick="filterByBrand(this)">
+                <div class="fchk"></div>AETHEL<span class="fcnt">24</span>
+              </label>
+              <label class="fo" data-brand="APPLE" onclick="filterByBrand(this)">
+                <div class="fchk"></div>Apple<span class="fcnt">31</span>
+              </label>
+              <label class="fo" data-brand="SAMSUNG" onclick="filterByBrand(this)">
+                <div class="fchk"></div>Samsung<span class="fcnt">22</span>
+              </label>
+              <label class="fo" data-brand="SONY" onclick="filterByBrand(this)">
+                <div class="fchk"></div>Sony<span class="fcnt">18</span>
+              </label>
+              <label class="fo" data-brand="CANON" onclick="filterByBrand(this)">
+                <div class="fchk"></div>Canon<span class="fcnt">12</span>
+              </label>
+              <label class="fo" data-brand="LUMIX" onclick="filterByBrand(this)">
+                <div class="fchk"></div>Lumix Pro<span class="fcnt">15</span>
+              </label>
+            </div>
+          </div>
+          <div class="fg">
+            <div class="ftog op" onclick="togF(this)">Rating <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polyline points="18 15 12 9 6 15" />
+              </svg></div>
+            <div class="fbody">
+              <label class="fo" data-rating="5" onclick="filterByRating(this)">
+                <div class="fchk"></div>★★★★★ (5 Star)<span class="fcnt">48</span>
+              </label>
+              <label class="fo" data-rating="4" onclick="filterByRating(this)">
+                <div class="fchk"></div>★★★★☆ (4+ Star)<span class="fcnt">127</span>
+              </label>
+              <label class="fo" data-rating="3" onclick="filterByRating(this)">
+                <div class="fchk"></div>★★★☆☆ (3+ Star)<span class="fcnt">195</span>
+              </label>
+            </div>
+          </div>
+          <div class="fg">
+            <div class="ftog op" onclick="togF(this)">Color <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polyline points="18 15 12 9 6 15" />
+              </svg></div>
+            <div class="fbody">
+              <div class="col-row">
+                <div class="csw" style="background:#0a0a0a;border:1px solid #444" onclick="this.classList.toggle('sel')"
+                  title="Black"></div>
+                <div class="csw" style="background:#c0c0c0" onclick="this.classList.toggle('sel')" title="Silver"></div>
+                <div class="csw" style="background:#c9a84c" onclick="this.classList.toggle('sel')" title="Gold"></div>
+                <div class="csw" style="background:#1a3a5c" onclick="this.classList.toggle('sel')" title="Navy"></div>
+                <div class="csw" style="background:#2d4a2d" onclick="this.classList.toggle('sel')" title="Forest"></div>
+                <div class="csw" style="background:#5c2a2a" onclick="this.classList.toggle('sel')" title="Burgundy">
+                </div>
+                <div class="csw" style="background:#f5f0e8;border:1px solid #ccc" onclick="this.classList.toggle('sel')"
+                  title="Cream"></div>
+                <div class="csw" style="background:#4a3f6b" onclick="this.classList.toggle('sel')" title="Purple"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <div>
+          <div class="toolbar">
+            <div class="res-cnt">Showing <strong id="resCount">16</strong> of <strong>340</strong> products</div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <select class="sort-sel" onchange="applySort(this.value)">
+                <option value="featured">Sort: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="newest">Newest First</option>
+                <option value="rating">Best Rated</option>
+              </select>
+              <div class="vbtns">
+                <button class="vb on" onclick="setView(this,'grid')"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                  </svg></button>
+                <button class="vb" onclick="setView(this,'list')"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="3" y="4" width="18" height="4" />
+                    <rect x="3" y="10" width="18" height="4" />
+                    <rect x="3" y="16" width="18" height="4" />
+                  </svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="pgrid" id="shopGrid"></div>
+          <div class="pagi">
+            <button class="pgb">&#8249;</button>
+            <button class="pgb on">1</button>
+            <button class="pgb" onclick="switchPg(this)">2</button>
+            <button class="pgb" onclick="switchPg(this)">3</button>
+            <button class="pgb" onclick="switchPg(this)">4</button>
+            <span style="color:var(--dark-5);padding:0 4px">…</span>
+            <button class="pgb" onclick="switchPg(this)">12</button>
+            <button class="pgb">&#8250;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════
+     PRODUCT DETAIL PAGE
+══════════════════════════════════════ -->
+  <main class="pg" id="pg-detail">
+    <div class="detail-hero">
+      <div class="wrap">
+        <div class="bcrumb">
+          <a href="#" onclick="goBack(event)">Home</a><span style="color:var(--dark-4)">/</span>
+          <a href="#" onclick="goBack(event)">Shop</a><span style="color:var(--dark-4)">/</span>
+          <span id="dBread">Product</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="dtl">
+        <!-- Gallery -->
+        <div>
+          <div class="gal-main">
+            <img id="galImg" class="gal-mi" src="" alt="Product"
+              onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80'">
+            <div class="gal-zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                <line x1="11" y1="8" x2="11" y2="14" />
+                <line x1="8" y1="11" x2="14" y2="11" />
+              </svg>Hover to zoom</div>
+            <div class="gal-nb" id="dGalBadge">New</div>
+          </div>
+          <div class="gal-tg" id="galThumbs"></div>
+        </div>
+
+        <!-- Info -->
+        <div class="din">
+          <div class="dbr">
+            <span class="pill pill-new" id="dPill">New Arrival</span>
+            <span class="pill" style="background:rgba(76,175,125,.15);color:#4caf7d">✓ In Stock</span>
+          </div>
+          <div class="d-brand" id="dBrand">AETHEL</div>
+          <h1 class="d-nm" id="dName">Product</h1>
+          <div class="d-rrow">
+            <div class="dstars" id="dStars"></div>
+            <span class="d-rs" id="dRating">4.9</span>
+            <span class="d-rc" onclick="openTab('reviews')" id="dRevCnt">(248 reviews)</span>
+            <span class="d-sold">· 1.2K sold</span>
+          </div>
+          <div class="d-prrow">
+            <span class="d-pnow" id="dPrice">$299.00</span>
+            <span class="d-pwas" id="dWas"></span>
+            <span class="d-psv" id="dSave" style="display:none"></span>
+          </div>
+          <p class="d-desc" id="dDesc">Premium quality product.</p>
+
+          <div class="opt-blk" id="sizeBlk">
+            <div class="opt-lbl">Band Size — <strong id="dSz">Medium</strong></div>
+            <div class="sz-row" id="szRow"></div>
+          </div>
+
+          <div class="opt-blk">
+            <div class="opt-lbl">Color — <strong id="dCol">Midnight Black</strong></div>
+            <div class="col-opts">
+              <div class="co on" style="background:#0a0a0a;border:1px solid #555"
+                onclick="pickCol(this,'Midnight Black')"></div>
+              <div class="co" style="background:#c0c0c0" onclick="pickCol(this,'Arctic Silver')"></div>
+              <div class="co" style="background:#c9a84c" onclick="pickCol(this,'Champagne Gold')"></div>
+              <div class="co" style="background:#1a3a5c" onclick="pickCol(this,'Deep Navy')"></div>
+            </div>
+          </div>
+
+          <div class="atc-row">
+            <div class="qty-w">
+              <button class="qb" onclick="chgQ(-1)">−</button>
+              <input class="qi" id="qi" type="number" value="1" min="1" max="99" readonly>
+              <button class="qb" onclick="chgQ(1)">+</button>
+            </div>
+            <button class="btn btn-gold btn-lg atc-btn" onclick="addToCart()"><svg width="17" height="17"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>Add to Cart</button>
+            <button class="wl-btn" id="wlBtn" onclick="togWl(this)"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg></button>
+          </div>
+
+          <button class="btn btn-wh btn-full" style="margin-bottom:18px"
+            onclick="addToCart();showToast('Redirecting to checkout…')">Buy Now — Fast Checkout</button>
+
+          <div class="trust-r">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>Free Delivery</div>
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="1 4 1 11 8 11" />
+                <path d="M3.51 15a9 9 0 102.13-9.36L1 11" />
+              </svg>30-Day Returns</div>
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>2-Yr Warranty</div>
+          </div>
+          <div class="share-r">
+            <span
+              style="font-size:.72rem;color:var(--dark-5);text-transform:uppercase;letter-spacing:.08em">Share:</span>
+            <a href="#" class="sh-btn">Twitter</a>
+            <a href="#" class="sh-btn">Facebook</a>
+            <a href="#" class="sh-btn">Copy Link</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABS -->
+      <div class="tab-sec">
+        <div class="tab-bar">
+          <button class="tbn on" onclick="openTab('desc',this)">Description</button>
+          <button class="tbn" onclick="openTab('specs',this)">Specifications</button>
+          <button class="tbn" onclick="openTab('reviews',this)" id="revTabBtn">Reviews<span
+              class="tcnt">248</span></button>
+          <button class="tbn" onclick="openTab('ship',this)">Shipping & Returns</button>
+        </div>
+
+        <div class="tpn on" id="tab-desc">
+          <div class="twrap">
+            <p id="tabDescTxt">Premium quality with exceptional craftsmanship.</p>
+            <p style="margin-top:14px;color:var(--white-muted)">Every detail is carefully considered, from the materials
+              selected to the processes used in manufacturing. The result is a product that doesn't just perform — it
+              elevates your everyday experience.</p>
+            <div class="fl" id="tabFeats">
+              <div class="fr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>Premium grade materials for lasting durability</div>
+              <div class="fr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>Advanced technology integration</div>
+              <div class="fr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>Crafted for all-day comfort and performance</div>
+              <div class="fr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>IP68 water resistance — safe to 50m depth</div>
+              <div class="fr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>Backed by comprehensive 2-year warranty</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tpn" id="tab-specs">
+          <div class="twrap">
+            <div class="spgrid">
+              <div>
+                <div class="spg-t">Display & Performance</div>
+                <div>
+                  <div class="spr"><span>Display</span><span>1.9" LTPO OLED, 2000 nits</span></div>
+                  <div class="spr"><span>Resolution</span><span>484×396px, 326ppi</span></div>
+                  <div class="spr"><span>Processor</span><span>Aethel Quantum X2</span></div>
+                  <div class="spr"><span>Storage</span><span>32GB internal</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="spg-t">Health & Connectivity</div>
+                <div>
+                  <div class="spr"><span>Battery</span><span>36-hour life</span></div>
+                  <div class="spr"><span>Water Resistance</span><span>IP68 — 50m</span></div>
+                  <div class="spr"><span>GPS</span><span>Multi-band L1/L5</span></div>
+                  <div class="spr"><span>Bluetooth</span><span>5.3 · Wi-Fi 6</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tpn" id="tab-reviews">
+          <div class="twrap" style="max-width:100%">
+            <div class="rev-hd">
+              <div style="text-align:center">
+                <div class="rev-avg-n">4.9</div>
+                <div class="ras"><svg viewBox="0 0 24 24">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg><svg viewBox="0 0 24 24">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg><svg viewBox="0 0 24 24">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg><svg viewBox="0 0 24 24">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg><svg viewBox="0 0 24 24">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg></div>
+                <div style="font-size:.8rem;color:var(--dark-5);margin-top:6px">248 reviews</div>
+              </div>
+              <div class="rbl">
+                <div class="rbr"><span style="width:24px">5★</span>
+                  <div class="rbt">
+                    <div class="rbf" style="width:78%"></div>
+                  </div><span>78%</span>
+                </div>
+                <div class="rbr"><span style="width:24px">4★</span>
+                  <div class="rbt">
+                    <div class="rbf" style="width:14%"></div>
+                  </div><span>14%</span>
+                </div>
+                <div class="rbr"><span style="width:24px">3★</span>
+                  <div class="rbt">
+                    <div class="rbf" style="width:5%"></div>
+                  </div><span>5%</span>
+                </div>
+                <div class="rbr"><span style="width:24px">2★</span>
+                  <div class="rbt">
+                    <div class="rbf" style="width:2%"></div>
+                  </div><span>2%</span>
+                </div>
+                <div class="rbr"><span style="width:24px">1★</span>
+                  <div class="rbt">
+                    <div class="rbf" style="width:1%"></div>
+                  </div><span>1%</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px">
+              <div style="font-size:.88rem;color:var(--white-muted)"><strong style="color:var(--white)">248</strong>
+                Reviews</div>
+              <button class="btn btn-go btn-sm"
+                onclick="document.getElementById('revFrm').style.display=document.getElementById('revFrm').style.display==='none'?'block':'none'">+
+                Write a Review</button>
+            </div>
+
+            <div class="rev-form" id="revFrm" style="display:none">
+              <h3 style="font-family:var(--font-d);font-size:1.3rem;margin-bottom:18px">Write a Review</h3>
+              <div style="margin-bottom:14px">
+                <div
+                  style="font-size:.76rem;color:var(--white-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">
+                  Your Rating</div>
+                <div class="starpick" id="starPick"><span onclick="pickStar(1)">☆</span><span
+                    onclick="pickStar(2)">☆</span><span onclick="pickStar(3)">☆</span><span
+                    onclick="pickStar(4)">☆</span><span onclick="pickStar(5)">☆</span></div>
+              </div>
+              <input type="text" class="rev-inp" placeholder="Review title" style="margin-bottom:10px">
+              <textarea class="rev-inp rev-ta" placeholder="Share your experience…"></textarea>
+              <div style="display:flex;gap:8px;margin-top:12px">
+                <button class="btn btn-gold btn-sm" onclick="submitRev()">Submit Review</button>
+                <button class="btn btn-dk btn-sm"
+                  onclick="document.getElementById('revFrm').style.display='none'">Cancel</button>
+              </div>
+            </div>
+
+            <div id="revList"></div>
+          </div>
+        </div>
+
+        <div class="tpn" id="tab-ship">
+          <div class="twrap">
+            <div class="ship-g">
+              <div class="ship-c">
+                <div class="ship-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="3" width="15" height="13" />
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg></div>
+                <h4>Standard Shipping</h4>
+                <p>Free on orders over $150. Delivery in 3–5 business days. Real-time tracking via email and SMS.</p>
+              </div>
+              <div class="ship-c">
+                <div class="ship-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg></div>
+                <h4>Express Shipping</h4>
+                <p>$19.99 flat rate. Delivery in 1–2 business days. Priority handling, signature on delivery.</p>
+              </div>
+              <div class="ship-c">
+                <div class="ship-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1 4 1 11 8 11" />
+                    <path d="M3.51 15a9 9 0 102.13-9.36L1 11" />
+                  </svg></div>
+                <h4>Easy Returns</h4>
+                <p>30-day hassle-free returns. Contact support and we'll arrange free pickup at no cost to you.</p>
+              </div>
+              <div class="ship-c">
+                <div class="ship-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg></div>
+                <h4>2-Year Warranty</h4>
+                <p>All AETHEL products carry a comprehensive 2-year manufacturer warranty on defects.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div class="rel-sec">
+        <div class="eyebrow">You May Also Like</div>
+        <h2 class="stitle" style="margin-bottom:36px">Related Products</h2>
+        <div class="rel-grid" id="relGrid"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-ft" id="contact">
+    <div class="wrap">
+      <div class="ft-g">
+        <div>
+          <div class="ft-logo">
+            <div class="logo-ic"><svg viewBox="0 0 24 24">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              </svg></div><span class="logo-tx">AETHEL<span>.</span></span>
+          </div>
+          <p class="ft-desc">Premium tech and lifestyle essentials, crafted for those who demand excellence in every
+            detail. Est. 2020.</p>
+          <div class="ft-soc">
+            <a href="#" class="soc-a"><svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg></a>
+            <a href="#" class="soc-a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg></a>
+            <a href="#" class="soc-a"><svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></a>
+            <a href="#" class="soc-a"><svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#080808" />
+              </svg></a>
+            <a href="#" class="soc-a"><svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+          </div>
+          <div class="paych"><span class="pch">VISA</span><span class="pch">Mastercard</span><span
+              class="pch">AMEX</span><span class="pch">PayPal</span><span class="pch">Apple Pay</span><span
+              class="pch">Google Pay</span></div>
+        </div>
+        <div>
+          <div class="ft-ct">Shop</div>
+          <div class="ft-lks">
+            <a href="#" class="ft-lk" onclick="resetAllFilters(event)">New Arrivals</a>
+            <a href="#" class="ft-lk" onclick="resetAllFilters(event)">Best Sellers</a>
+            <a href="#" class="ft-lk" onclick="resetAllFilters(event)">Sale Items</a>
+            <a href="#" class="ft-lk" onclick="navToShopCat('Wearables',event)">Wearables</a>
+            <a href="#" class="ft-lk" onclick="navToShopCat('Audio',event)">Audio Gear</a>
+            <a href="#" class="ft-lk" onclick="navToShopCat('Home & Living',event)">Home & Living</a>
+          </div>
+        </div>
+        <div>
+          <div class="ft-ct">Support</div>
+          <div class="ft-lks">
+            <a href="#" class="ft-lk">Order Tracking</a>
+            <a href="#" class="ft-lk">Returns & Exchanges</a>
+            <a href="#" class="ft-lk">Shipping Info</a>
+            <a href="#" class="ft-lk">Help Center</a>
+            <a href="#" class="ft-lk">Size Guide</a>
+            <a href="#" class="ft-lk">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <div class="ft-ct">Newsletter</div>
+          <p class="ft-nl-tx">Join 50,000+ subscribers. First access to new products, exclusive deals and design
+            stories.</p>
+          <form class="nl-form" onsubmit="nlSub(event)"><input type="email" class="nl-inp"
+              placeholder="Your email address" required><button type="submit" class="nl-btn">Subscribe</button></form>
+          <p style="font-size:.72rem;color:var(--dark-5);margin-top:10px">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+      <div class="ft-bot">
+        <div class="ft-bot-in">
+          <p class="ft-copy">&copy; 2026 AETHEL Store. All rights reserved. Crafted with ♥</p>
+          <div class="ft-leg"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a><a
+              href="#">Sitemap</a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
