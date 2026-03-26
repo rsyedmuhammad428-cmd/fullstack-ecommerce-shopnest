@@ -48,6 +48,7 @@
 
     html {
       scroll-behavior: auto;
+      overflow-x: hidden;
     }
 
     body {
@@ -57,6 +58,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      width: 100%;
     }
 
     img {
@@ -216,6 +218,9 @@
       text-transform: uppercase;
       position: relative;
       z-index: 210;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .ann-bar a {
@@ -1217,9 +1222,19 @@
     /* Product tabs */
     .ptabs {
       display: flex;
+      width: 100%;
       gap: 2px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 36px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ptabs::-webkit-scrollbar {
+      display: none;
     }
 
     .pt {
