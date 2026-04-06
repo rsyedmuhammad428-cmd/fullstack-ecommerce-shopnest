@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AETHEL Store — Premium Tech & Lifestyle</title>
+  <title>ShopNest Store — Premium Tech & Lifestyle</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -16,7 +16,8 @@
 <body>
 
   <!-- ANNOUNCEMENT BAR -->
-  <div class="ann-bar">🎉 Free Shipping on orders over $150 &nbsp;·&nbsp; Use code <strong>AETHEL20</strong> for 20% off
+  <div class="ann-bar">🎉 Free Shipping on orders over $150 &nbsp;·&nbsp; Use code <strong>ShopNest20</strong> for 20%
+    off
     &nbsp;·&nbsp; <a href="#">New Arrivals →</a></div>
 
   <!-- ══ HEADER ══ -->
@@ -24,20 +25,18 @@
     <div class="wrap">
       <div class="hdr-in">
         <a href="#" class="logo" onclick="nav('home',event)">
-          <div class="logo-ic"><svg viewBox="0 0 24 24">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-            </svg></div>
-          <span class="logo-tx">AETHEL<span>.</span></span>
+          <img src="https://i.postimg.cc/C173MHjC/Modern-gold-shopping-cart-logo.png" alt="ShopNest Logo"
+            style="height:54px; width:auto; border-radius:4px;">
+          <span class="logo-tx">ShopNest<span>.</span></span>
         </a>
 
         <nav class="nav" id="mainNav">
           <!-- Mobile Nav Header -->
           <div class="nav-mob-hd">
             <div class="nav-mob-logo">
-              <div class="logo-ic"><svg viewBox="0 0 24 24">
-                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-                </svg></div>
-              <span class="logo-tx">AETHEL<span>.</span></span>
+              <img src="https://i.postimg.cc/C173MHjC/Modern-gold-shopping-cart-logo.png" alt="ShopNest Logo"
+                style="height:42px; width:auto; border-radius:4px; margin-right: 8px;">
+              <span class="logo-tx">ShopNest<span>.</span></span>
             </div>
             <button class="nav-mob-close" onclick="closeMNav()" aria-label="Close menu">✕</button>
           </div>
@@ -162,7 +161,7 @@
               stroke-width="1.8">
               <path
                 d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-            </svg></button>
+            </svg><span class="hbadge" id="wBadge" style="display:none">0</span></button>
           <button class="hbtn" onclick="toggleCart()" title="Cart"><svg viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="1.8">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
@@ -210,7 +209,7 @@
     </div>
     <div class="cart-ft" id="cartFt" style="display:none">
       <div class="cart-sub"><span>Subtotal</span><strong id="cartTot">$0.00</strong></div>
-      <button class="btn btn-gold btn-full" style="margin-bottom:10px">Checkout →</button>
+      <button class="btn btn-gold btn-full" style="margin-bottom:10px" onclick="window.location.href='checkout.html'">Checkout →</button>
       <button class="btn btn-dk btn-full btn-sm" onclick="toggleCart()">Continue Shopping</button>
     </div>
   </aside>
@@ -534,7 +533,7 @@
                   points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg></div>
             <p class="t-body">"Ordered the sofa set on a Tuesday, delivered by Thursday. The quality is absolutely
-              stunning — looks even better in person. AETHEL has a customer for life."</p>
+              stunning — looks even better in person. ShopNest has a customer for life."</p>
             <div class="t-auth"><img class="t-av"
                 src="https://ui-avatars.com/api/?name=Sophia+Chen&background=c9a84c&color=080808&size=80&bold=true"
                 alt="Sophia" loading="lazy">
@@ -608,8 +607,8 @@
         <aside class="sidebar">
           <div class="sb-hd">Filters <span class="clr-btn" onclick="clearF()">Clear all</span></div>
           <div class="fg">
-            <div class="ftog op" onclick="togF(this)">Category <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
+            <div class="ftog" onclick="togF(this)">Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
                 <polyline points="18 15 12 9 6 15" />
               </svg></div>
             <div class="fbody">
@@ -640,7 +639,7 @@
             </div>
           </div>
           <div class="fg">
-            <div class="ftog op" onclick="togF(this)">Price Range <svg viewBox="0 0 24 24" fill="none"
+            <div class="ftog" onclick="togF(this)">Price Range <svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2">
                 <polyline points="18 15 12 9 6 15" />
               </svg></div>
@@ -650,13 +649,13 @@
             </div>
           </div>
           <div class="fg">
-            <div class="ftog op" onclick="togF(this)">Brand <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <div class="ftog" onclick="togF(this)">Brand <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <polyline points="18 15 12 9 6 15" />
               </svg></div>
             <div class="fbody">
-              <label class="fo" data-brand="AETHEL" onclick="filterByBrand(this)">
-                <div class="fchk"></div>AETHEL<span class="fcnt">24</span>
+              <label class="fo" data-brand="ShopNest" onclick="filterByBrand(this)">
+                <div class="fchk"></div>ShopNest<span class="fcnt">24</span>
               </label>
               <label class="fo" data-brand="APPLE" onclick="filterByBrand(this)">
                 <div class="fchk"></div>Apple<span class="fcnt">31</span>
@@ -676,7 +675,7 @@
             </div>
           </div>
           <div class="fg">
-            <div class="ftog op" onclick="togF(this)">Rating <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <div class="ftog" onclick="togF(this)">Rating <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <polyline points="18 15 12 9 6 15" />
               </svg></div>
@@ -693,7 +692,7 @@
             </div>
           </div>
           <div class="fg">
-            <div class="ftog op" onclick="togF(this)">Color <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <div class="ftog" onclick="togF(this)">Color <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <polyline points="18 15 12 9 6 15" />
               </svg></div>
@@ -795,7 +794,7 @@
             <span class="pill pill-new" id="dPill">New Arrival</span>
             <span class="pill" style="background:rgba(76,175,125,.15);color:#4caf7d">✓ In Stock</span>
           </div>
-          <div class="d-brand" id="dBrand">AETHEL</div>
+          <div class="d-brand" id="dBrand">ShopNest</div>
           <h1 class="d-nm" id="dName">Product</h1>
           <div class="d-rrow">
             <div class="dstars" id="dStars"></div>
@@ -846,7 +845,7 @@
           </div>
 
           <button class="btn btn-wh btn-full" style="margin-bottom:18px"
-            onclick="addToCart();showToast('Redirecting to checkout…')">Buy Now — Fast Checkout</button>
+            onclick="addToCart(); window.location.href='checkout.html'">Buy Now — Fast Checkout</button>
 
           <div class="trust-r">
             <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -917,7 +916,7 @@
                 <div>
                   <div class="spr"><span>Display</span><span>1.9" LTPO OLED, 2000 nits</span></div>
                   <div class="spr"><span>Resolution</span><span>484×396px, 326ppi</span></div>
-                  <div class="spr"><span>Processor</span><span>Aethel Quantum X2</span></div>
+                  <div class="spr"><span>Processor</span><span>ShopNest Quantum X2</span></div>
                   <div class="spr"><span>Storage</span><span>32GB internal</span></div>
                 </div>
               </div>
@@ -1050,7 +1049,7 @@
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg></div>
                 <h4>2-Year Warranty</h4>
-                <p>All AETHEL products carry a comprehensive 2-year manufacturer warranty on defects.</p>
+                <p>All ShopNest products carry a comprehensive 2-year manufacturer warranty on defects.</p>
               </div>
             </div>
           </div>
@@ -1072,9 +1071,9 @@
       <div class="ft-g">
         <div>
           <div class="ft-logo">
-            <div class="logo-ic"><svg viewBox="0 0 24 24">
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-              </svg></div><span class="logo-tx">AETHEL<span>.</span></span>
+            <img src="https://i.postimg.cc/C173MHjC/Modern-gold-shopping-cart-logo.png" alt="ShopNest Logo"
+              style="height:48px; width:auto; border-radius:4px; margin-right: 12px;">
+            <span class="logo-tx">ShopNest<span>.</span></span>
           </div>
           <p class="ft-desc">Premium tech and lifestyle essentials, crafted for those who demand excellence in every
             detail. Est. 2020.</p>
@@ -1138,7 +1137,7 @@
       </div>
       <div class="ft-bot">
         <div class="ft-bot-in">
-          <p class="ft-copy">&copy; 2026 AETHEL Store. All rights reserved. Crafted with ♥</p>
+          <p class="ft-copy">&copy; 2026 ShopNest Store. All rights reserved. Crafted with ♥</p>
           <div class="ft-leg"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a><a
               href="#">Sitemap</a></div>
         </div>
@@ -1147,6 +1146,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>

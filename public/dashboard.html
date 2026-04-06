@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — ShopNest</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --sidebar-w: 260px;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: var(--black);
+    }
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--dark-2);
+      border-right: 1px solid var(--border);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100vh;
+    }
+    .main-content {
+      flex: 1;
+      margin-left: var(--sidebar-w);
+      padding: 40px;
+    }
+    .side-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: var(--white-muted);
+      border-radius: var(--rsm);
+      margin-bottom: 8px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--dark-3);
+      color: var(--gold);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .stat-card {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: var(--rmd);
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 2rem;
+      color: var(--gold);
+      font-family: var(--font-m);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--white-muted);
+    }
+    .section-title {
+      font-family: var(--font-d);
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .status-pending { background: var(--orange); color: white; }
+    .status-shipped { background: #3498db; color: white; }
+    .status-delivered { background: var(--green); color: white; }
+    
+    .order-row:hover { background: rgba(255,255,255,0.02); }
+    
+    .admin-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .action-btn {
+      padding: 6px 10px;
+      font-size: 0.7rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--dark-3);
+      color: var(--white-muted);
+      transition: 0.2s;
+    }
+    .action-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    
+    @media (max-width: 768px) {
+      .sidebar { width: 70px; padding: 30px 10px; }
+      .nav-link span, .logo-tx { display: none; }
+      .main-content { margin-left: 70px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="side-logo">
+      <img src="https://i.postimg.cc/C173MHjC/Modern-gold-shopping-cart-logo.png" alt="ShopNest Logo" style="height:32px;">
+      <span class="logo-tx">ShopNest<span>.</span></span>
+    </div>
+    <nav>
+      <div class="nav-link active" onclick="showSection('orders')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span>Orders</span>
+      </div>
+      <div class="nav-link" onclick="showSection('users')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Users</span>
+      </div>
+    </nav>
+    <div style="margin-top: auto;">
+      <div class="nav-link" onclick="logout()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Logout</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="section-title">
+      Dashboard Overview
+      <span style="font-size: 0.9rem; color: var(--gold);" id="adminName"></span>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-val" id="statOrders">0</div>
+        <div class="stat-label">Total Orders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="statUsers">0</div>
+        <div class="stat-label">Total Users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="statProducts">16</div>
+        <div class="stat-label">Live Products</div>
+      </div>
+    </div>
+
+    <div id="ordersSection">
+      <h2 class="section-title">Recent Orders</h2>
+      <div style="overflow-x: auto;">
+        <table class="lux-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Products</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="usersSection" style="display: none;">
+      <h2 class="section-title">Registered Users</h2>
+      <div style="overflow-x: auto;">
+        <table class="lux-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Joined Date</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const API_URL = '/api';
+    const token = localStorage.getItem('shopnest_admin_token');
+
+    if (!token) {
+      window.location.href = 'admin-login.html';
+    }
+
+    async function fetchData(endpoint) {
+      const res = await fetch(`${API_URL}/admin/${endpoint}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.status === 401 || res.status === 403) logout();
+      return await res.json();
+    }
+
+    async function initDashboard() {
+      const admin = JSON.parse(localStorage.getItem('shopnest_admin_user'));
+      document.getElementById('adminName').textContent = `Admin: ${admin.name}`;
+
+      // Load Stats
+      const stats = await fetchData('stats');
+      document.getElementById('statOrders').textContent = stats.totalOrders;
+      document.getElementById('statUsers').textContent = stats.totalUsers;
+      document.getElementById('statProducts').textContent = stats.totalProducts;
+
+      // Load Orders
+      loadOrders();
+      // Load Users
+      loadUsers();
+    }
+
+    async function loadOrders() {
+      const orders = await fetchData('orders');
+      const tbody = document.getElementById('ordersTableBody');
+      tbody.innerHTML = orders.map(o => `
+        <tr class="order-row">
+          <td>#${o._id.substring(o._id.length-6).toUpperCase()}</td>
+          <td>${o.shippingDetails.fullName}<br><small style="color:var(--dark-5)">${o.user ? o.user.email : 'Deleted User'}</small></td>
+          <td>${o.items.map(i => `${i.name} (${i.quantity})`).join(', ')}</td>
+          <td style="color:var(--gold); font-family:var(--font-m)">$${o.totalAmount.toFixed(2)}</td>
+          <td><span class="status-badge status-${o.status.toLowerCase()}">${o.status}</span></td>
+          <td class="admin-actions">
+            <button class="action-btn" onclick="updateStatus('${o._id}', 'Shipped')">Ship</button>
+            <button class="action-btn" onclick="updateStatus('${o._id}', 'Delivered')">Deliver</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function loadUsers() {
+      const users = await fetchData('users');
+      const tbody = document.getElementById('usersTableBody');
+      tbody.innerHTML = users.map(u => `
+        <tr>
+          <td>${u.name}</td>
+          <td>${u.email}</td>
+          <td>${new Date(u.createdAt).toLocaleDateString()}</td>
+          <td><span style="color:${u.isAdmin ? 'var(--gold)' : 'inherit'}">${u.isAdmin ? 'Admin' : 'Customer'}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    async function updateStatus(orderId, newStatus) {
+      await fetch(`${API_URL}/admin/orders/${orderId}`, {
+        method: 'PUT',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ status: newStatus })
+      });
+      loadOrders();
+    }
+
+    function showSection(section) {
+      document.getElementById('ordersSection').style.display = section === 'orders' ? 'block' : 'none';
+      document.getElementById('usersSection').style.display = section === 'users' ? 'block' : 'none';
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+
+    function logout() {
+      localStorage.removeItem('shopnest_admin_token');
+      localStorage.removeItem('shopnest_admin_user');
+      window.location.href = 'admin-login.html';
+    }
+
+    initDashboard();
+  </script>
+</body>
+</html>

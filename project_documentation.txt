@@ -1,0 +1,83 @@
+================================================================================
+🛍️ PROJECT OVERVIEW: SHOPNEST E-COMMERCE PLATFORM
+================================================================================
+
+1. PROJECT SUMMARY
+ShopNest is a professional, full-stack E-commerce website featuring a modern 
+black-and-gold luxury theme. It provides a seamless shopping experience with 
+user authentication, wishlist management, a dynamic shopping cart, and a 
+comprehensive admin dashboard.
+
+2. TECHNOLOGY STACK (FRAMEWORKS & TOOLS)
+--------------------------------------------------------------------------------
+• FRONTEND: 
+  - Pure HTML5, CSS3, and Vanilla JavaScript (ES6+).
+  - Modern UI/UX practices with a responsive layout.
+  - LocalStorage for persistent cart and guest-session handling.
+
+• BACKEND: 
+  - Node.js: Runtime environment for execution.
+  - Express.js: Web framework for building the API.
+  - MongoDB Atlas: Cloud database for secure and scalable data storage.
+  - Mongoose: ODM (Object Data Modeling) for MongoDB.
+
+• KEY LIBRARIES:
+  - JSONWebToken (JWT): For secure user and admin authentication.
+  - BcryptJS: For password hashing and security.
+  - NodeMailer: For automated email notification systems.
+  - Cors: For handling Cross-Origin Resource Sharing.
+  - Dotenv: For managing sensitive environment variables.
+
+3. KEY FEATURES
+--------------------------------------------------------------------------------
+• USER FEATURES:
+  - Account Registration & Login.
+  - Product Wishlist (Synced with Database).
+  - Real-time Header Badges (Cart & Wishlist counters).
+  - Dynamic Shopping Cart with quantity management.
+  - Professional Checkout with multiple payment methods (COD, Easypaisa, Bank).
+  - Payment Screenshot Upload for manual verification.
+
+• ADMIN FEATURES:
+  - Secure Admin Panel (Only accessible by "isAdmin" users).
+  - Live Dashboard Statistics (Total Orders, Users, Products).
+  - Order Management: View all orders and update statuses (Pending, Shipped, Delivered).
+  - User Management: View a list of all registered customers.
+  - Automated Email Alerts: Instantly notified of new orders with customer details.
+
+4. CHALLENGES FACED & SOLUTIONS
+--------------------------------------------------------------------------------
+• CHALLENGE: MongoDB "ETIMEOUT" Error (DNS Resolution)
+  - Issue: The server could not resolve the standard MongoDB SRV connection string.
+  - Solution: Switched to a Standard Direct Connection URI targeting specific 
+    cluster shards, resolving DNS resolution failures.
+
+• CHALLENGE: JSON Parsing Failures (Unexpected Character)
+  - Issue: Backend errors were returning plain text instead of JSON, causing the 
+    frontend to crash during API calls.
+  - Solution: Standardized all backend controllers to return JSON objects 
+    (e.g., res.json({ msg: 'error' })) and updated frontend API URLs to be relative.
+
+• CHALLENGE: Large Image Uploads (PayloadTooLargeError)
+  - Issue: Payment screenshots were failing to upload because they exceeded the 
+    default 1MB server limit.
+  - Solution: Increased Express.js payload limits to 10MB to accommodate 
+    high-resolution screenshots.
+
+• CHALLENGE: UI Inconsistency in Checkout Details
+  - Issue: Static HTML placeholders were overwriting dynamic JavaScript details.
+  - Solution: Removed hardcoded placeholders from HTML and implemented a 
+    force-refresh heartbeat in JavaScript to ensure correct account details 
+    are always displayed.
+
+5. SECURITY MEASURES
+--------------------------------------------------------------------------------
+• Password Encryption: All user passwords are hashed using Bcrypt before storage.
+• Protected Routes: Admin APIs are protected by custom JWT middleware.
+• Environment Safety: Sensitive credentials (DB URI, Email Passwords) are 
+  stored in a protected .env file.
+
+================================================================================
+BUILD BY: Senior Full Stack Web Developer
+PROJECT DATE: April 2026
+================================================================================
