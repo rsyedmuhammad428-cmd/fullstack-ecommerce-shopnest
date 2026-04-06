@@ -42,6 +42,19 @@ app.use('/api/admin', require('./routes/admin'));
 app.get('/admin-login', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin-login.html')));
 app.get('/dashboard', (req, res) => res.sendFile(path.join(__dirname, 'public', 'dashboard.html')));
 
+// Diagnostics health check
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    db: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    readyState: mongoose.connection.readyState,
+    env: {
+      has_uri: !!process.env.MONGODB_URI,
+      has_jwt: !!process.env.JWT_SECRET
+    }
+  });
+});
+
 // Fallback to index.html for unknown routes
 app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
