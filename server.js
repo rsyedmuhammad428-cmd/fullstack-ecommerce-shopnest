@@ -18,17 +18,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 const uri = process.env.MONGODB_URI;
 console.log('Attempting to connect to MongoDB...');
 
-mongoose.connect(uri, {
-  serverSelectionTimeoutMS: 10000,
-  socketTimeoutMS: 45000,
-  family: 4 // Force IPv4
-})
+mongoose.connect(uri)
   .then(() => console.log('✅ Connected to MongoDB successfully'))
   .catch(err => {
     console.error('❌ MongoDB connection error details:', err);
-    if (err.code === 'ETIMEOUT') {
-      console.log('HINT: DNS Timeout. The server cannot resolve the MongoDB address.');
-    }
   });
 
 // Routes
