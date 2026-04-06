@@ -3226,6 +3226,25 @@ input[type="range"]::-webkit-slider-thumb {
     display: flex !important;
   }
 
+  /* Hamburger first so it is not clipped when the header row overflows */
+  .hdr-acts .mob-tog {
+    order: -1;
+  }
+
+  .lux-form-container.checkout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .lux-form-container.checkout-grid .checkout-col--summary {
+    order: -1;
+  }
+
   .cart-sb {
     width: 100%;
   }
@@ -3401,6 +3420,17 @@ input[type="range"]::-webkit-slider-thumb {
   padding: 40px;
   margin: 60px auto;
   box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+
+/* Checkout: two columns on desktop; single column + order summary first on mobile */
+.lux-form-container.checkout-grid {
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .lux-form-group {
