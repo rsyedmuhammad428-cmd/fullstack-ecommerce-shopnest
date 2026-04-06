@@ -3226,23 +3226,43 @@ input[type="range"]::-webkit-slider-thumb {
     display: flex !important;
   }
 
-  /* Hamburger first so it is not clipped when the header row overflows */
+  /* Hamburger first; account before wishlist/cart so all four fit without clipping */
   .hdr-acts .mob-tog {
     order: -1;
   }
 
-  .lux-form-container.checkout-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    max-width: 100%;
-    min-width: 0;
-    padding-left: 0;
-    padding-right: 0;
+  .hdr-acts .hbtn:nth-child(3) {
+    order: 1;
   }
 
-  .lux-form-container.checkout-grid .checkout-col--summary {
-    order: -1;
+  .hdr-acts .hbtn:nth-child(1) {
+    order: 2;
+  }
+
+  .hdr-acts .hbtn:nth-child(2) {
+    order: 3;
+  }
+
+  .hdr-in {
+    gap: 8px;
+  }
+
+  .hdr-acts {
+    gap: 0;
+  }
+
+  .hdr-acts .hbtn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hdr-acts .hbtn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .logo .logo-tx {
+    font-size: 1.2rem;
   }
 
   .cart-sb {
@@ -3422,7 +3442,7 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 20px 60px rgba(0,0,0,0.8);
 }
 
-/* Checkout: two columns on desktop; single column + order summary first on mobile */
+/* Checkout: two columns on desktop (see mobile override at end of file — must load after this) */
 .lux-form-container.checkout-grid {
   max-width: 800px;
   display: grid;
@@ -3431,6 +3451,30 @@ input[type="range"]::-webkit-slider-thumb {
   background: transparent;
   border: none;
   box-shadow: none;
+}
+
+/* Mobile/tablet checkout: stack full-width; order summary first (overrides grid above) */
+@media (max-width: 768px) {
+  .lux-form-container.checkout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    grid-template-columns: none;
+  }
+
+  .lux-form-container.checkout-grid .checkout-col {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .lux-form-container.checkout-grid .checkout-col--summary {
+    order: -1;
+  }
 }
 
 .lux-form-group {
