@@ -11,10 +11,8 @@ exports.checkout = async (req, res) => {
       return res.status(400).json({ msg: 'No order items' });
     }
 
-    if (mongoose.connection.readyState !== 1) {
-      console.error('Database not connected. ReadyState:', mongoose.connection.readyState);
-      return res.status(503).json({ msg: 'Database connection is temporarily down. Please try again in a moment.' });
-    }
+    // Mongoose will automatically queue the 'save' operation if the connection is still in state 2 (connecting).
+    // This removes the "Database connection down" error during serverless cold starts.
 
     const order = new Order({
       user: req.user.id,
