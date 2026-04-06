@@ -16,7 +16,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect to MongoDB
 const uri = process.env.MONGODB_URI;
-console.log('Attempting to connect to MongoDB...');
+if (uri) {
+  const maskedUri = uri.replace(/:([^:@]+)@/, ':****@');
+  console.log('Attempting to connect with URI:', maskedUri);
+} else {
+  console.error('❌ MONGODB_URI is missing from environment!');
+}
 
 mongoose.connect(uri)
   .then(() => console.log('✅ Connected to MongoDB successfully'))
