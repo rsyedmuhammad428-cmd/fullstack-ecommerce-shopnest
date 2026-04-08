@@ -522,6 +522,32 @@ select {
   }
 }
 
+/* iPad widths (portrait/landscape): tighten nav + search to prevent overlap */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .logo-tx {
+    font-size: 1.35rem;
+  }
+
+  .nav-ul {
+    gap: 0;
+  }
+
+  .nav-a {
+    padding: 8px 8px;
+    font-size: .8rem;
+  }
+
+  .hdr-srch {
+    flex: 1 1 260px;
+    min-width: 140px;
+    max-width: 320px;
+  }
+
+  .hdr-acts {
+    gap: 2px;
+  }
+}
+
 @media (max-width: 960px) {
   .hdr-srch {
     flex: 1 1 260px;
