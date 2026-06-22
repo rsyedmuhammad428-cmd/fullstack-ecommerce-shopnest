@@ -435,7 +435,7 @@ async function loadDashboard() {
             dashCartList.innerHTML += `
               <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:0.9rem; border-bottom:1px solid var(--dark-4); padding-bottom:10px;">
                 <div style="display:flex; gap:15px; align-items:center;">
-                  <img src="${item.img}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;" onerror="this.src='https://via.placeholder.com/40'">
+                  <img src="${item.img}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiMzMzMiLz48dGV4dCB4PSIyMCIgeT0iMjUiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltZzwvdGV4dD48L3N2Zz4='">
                   <div>
                     <strong>${item.name}</strong><br>
                     <span style="color:var(--white-muted); font-size:0.75rem;">Qty: ${item.qty}</span>
